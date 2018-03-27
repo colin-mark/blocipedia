@@ -39,4 +39,17 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Devise config
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gmail.com',
+    user_name:            ENV["mailer_email"],
+    password:             ENV["mailer_password"],
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
 end
