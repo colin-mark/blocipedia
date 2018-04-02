@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  resources :wikis, except: []
+
   devise_for :users
-  get 'welcome/index'
 
   root 'welcome#index'
 end
