@@ -1,6 +1,4 @@
 class WikisController < ApplicationController
-  before_action :user_signed_in?, :except => [:show, :index, :new, :edit, :create, :update]
-  before_action :authenticate_user!, :except => [:show, :index, :new, :edit, :create, :update]
 
   def index
     @wikis = Wiki.all

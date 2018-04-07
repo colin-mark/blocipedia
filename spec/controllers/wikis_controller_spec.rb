@@ -10,7 +10,6 @@ RSpec.describe WikisController, type: :controller do
   context "member user doing crud" do
     before do
       sign_in my_user
-      sign_in my_user, scope: :member
     end
 
     describe "GET #index" do
