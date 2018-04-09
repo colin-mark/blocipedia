@@ -39,6 +39,9 @@ gem 'thor', '0.20.0'
 # Devise
 gem 'devise', '~> 4.4', '>= 4.4.3'
 
+# Pundit
+gem "pundit"
+
 # Figaro
 gem 'figaro', '1.0'
 
@@ -49,5 +52,5 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'rails-controller-testing'
-  gem 'factory_girl_rails', '~> 4.0'
+  gem "factory_bot_rails"
 end
