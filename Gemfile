@@ -42,6 +42,9 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 # Pundit
 gem "pundit"
 
+# Faker
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
 # Figaro
 gem 'figaro', '1.0'
 
