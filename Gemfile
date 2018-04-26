@@ -42,6 +42,12 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 # Pundit
 gem "pundit"
 
+# Stripe
+gem 'stripe'
+
+# Bootstrap
+gem 'bootstrap-sass'
+
 # Figaro
 gem 'figaro', '1.0'
 
