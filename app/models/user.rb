@@ -6,9 +6,13 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are: :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
 
+  enum role: [:standard, :premium, :admin]
+
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
   end
 
-  enum role: [:standard, :premium, :admin]
+  def has_wiki?(wiki)
+    wiki.user_id == self.id
+  end
 end

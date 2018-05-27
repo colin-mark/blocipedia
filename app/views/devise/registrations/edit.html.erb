@@ -41,7 +41,7 @@
 <% if current_user.standard? %>
   <%= button_to "Upgrade my account", charges_path, class: 'btn btn-success' %>
 <% else %>
-  <%= button_to "Downgrade my account", downgrade_user_path(current_user), class: 'btn btn-warning' %>
+  <%= button_to "Downgrade my account", downgrade_user_path(current_user), class: 'btn btn-warning', data: { confirm: "Are you sure you want to downgrade your account? All of your private wikis will be made public."} %>
 <% end %>
 <br />
 
