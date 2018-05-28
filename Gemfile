@@ -51,6 +51,9 @@ gem 'bootstrap-sass'
 # Figaro
 gem 'figaro', '1.0'
 
+# Redcarpet
+gem 'redcarpet'
+
 group :development do
   gem 'listen', '~> 3.0.5'
 end
