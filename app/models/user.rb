@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   has_many :wikis
+  has_many :collaborators
+  has_many :wiki_collabs, through: :collaborators, source: :wiki
+
   after_initialize { self.role ||= :standard }
+
   # attr_accessor :email, :password, :password_confirmation, :remember_me, :username
 
   # Include default devise modules. Others available are: :confirmable, :lockable, :timeoutable and :omniauthable

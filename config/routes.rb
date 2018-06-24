@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :charges, only: [:new, :create]
 
-  resources :wikis, except: []
+  resources :wikis, except: [] do
+    resources :collaborators, except: [:update, :show, :edit]
+  end
 
   devise_for :users
 

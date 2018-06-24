@@ -1,0 +1,59 @@
+<h1><%= "Manage collaborators for the '#{@wiki.title}' wiki" %></h1>
+<h3><%= "Current collaborators:" %></h3>
+<div class="row">
+  <div class="col-md-8">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @collaborators.each do |c| %>
+          <tr>
+            <td><%= "#{c.username}" %></td>
+            <td><%= "#{c.email}" %></td>
+            <td>
+              <% collab = Collaborator.where(user_id: c.id, wiki_id: @wiki.id) %>
+
+              <%= form_for @collaborator, url: {controller: "collaborators", action: "destroy", id: collab.ids}, method: :delete do |f| %>
+                <%= f.hidden_field :id, value: collab.ids %>
+                <%= f.submit "Remove Access", class: 'btn btn-danger' %>
+              <% end %>
+            </td>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3><%= "Add collaborators from the list below:" %></h3>
+<div class="row">
+  <div class="col-md-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Give Access</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= "#{user.username}" %></td>
+              <td><%= "#{user.email}" %></td>
+              <td>
+                <%= form_for @collaborator, url: {controller: "collaborators", action: "create"} do |f| %>
+                  <%= f.hidden_field :user_id, value: user.id %>
+                  <%= f.submit "Give Access", class: 'btn btn-success' %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>

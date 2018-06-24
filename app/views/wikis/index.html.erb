@@ -4,11 +4,9 @@
     <% @wikis.each do |wiki| %>
       <div class="media">
         <div class="media-body">
-          <% if user_is_authorized_for_private_wikis?(wiki) %>
             <h4 class="media-heading">
               <%= link_to wiki.title, wiki %>
             </h4>
-          <% end %>
         </div>
       </div>
     <% end %>
